@@ -1,0 +1,94 @@
+060660061
+¹ş¹ş
+
+#include <iostream>
+
+using namespace std;
+
+
+
+int lnei,lnum,x,y;
+
+
+
+void fun(int num,int l,int r)
+
+{
+
+int ln=(1+l)*l/2;
+
+int rn=(1+r)*r/2;
+
+if(l==r-1)
+
+{
+
+lnei=l;
+
+lnum=(1+lnei)*lnei/2;
+
+return;
+
+}
+
+int mid=(l+r)/2;
+
+int mn=(1+mid)*mid/2;
+
+if(mn<num)
+
+{
+
+fun(num,mid,r);
+
+}
+
+else
+
+{
+
+fun(num,l,mid);
+
+}
+
+}
+
+
+
+int main(int argc, char** argv) {
+
+
+
+int n;cin>>n;
+
+fun(n,0,14500);
+
+if(lnei%2==0)
+
+{
+
+x=lnei-n+lnum+2;
+
+y=n-lnum;
+
+cout<<x<<"/"<<y;
+
+}
+
+else
+
+{
+
+x=n-lnum;
+
+y=lnei-n+lnum+2;
+
+cout<<x<<"/"<<y;
+
+}
+
+
+
+return 0;
+
+}

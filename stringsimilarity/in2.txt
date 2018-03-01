@@ -1,0 +1,36 @@
+0605160118
+∆Ω¡ı
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int row = (sqrt(1+8*(n-1))-1)/2+1;
+    int col = n - row*(row-1)/2;
+    if(row%2!=0)
+        col = row+1-col;
+    cout<<col<<'/'<<row+1-col<<endl;
+    return 0;
+}
+	return 0;
+
+}
+void input(){
+	scanf("%d%d%d",&N,&M,&K);
+	A += "0";
+	B += "0";
+	string ts;
+	cin >> ts;
+	A += ts;
+	
+	cin >> ts;
+	B += ts;
+	
+	cout << A << "\n" << B <<endl;
+
+	for(i = 1; i<=K; i++){
+		scanf("%d",&X[i]);
+	}
+}

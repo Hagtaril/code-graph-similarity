@@ -1,0 +1,49 @@
+0605160118
+Tom
+#include<iostream>
+
+using namespace std;
+
+
+
+inline void dfs(int n,int x)
+
+{
+
+if(n>x)dfs(n-x,x+1);
+
+else if(x%2!=0&&n<=x)cout<<x-n+1<<'/'<<n;
+
+else if(x%2==0&&n<=x)cout<<n<<'/'<<x-n+1;
+
+}
+
+
+
+
+
+int main()
+
+{
+
+int n;
+
+cin>>n;
+
+dfs(n,1);
+
+}
+void output(){
+	rep(i,1,K) printf("%d\n",res[i]);
+}
+int main(){
+	
+	
+	input();
+
+	KMP();
+
+	output();
+	return 0;
+
+}

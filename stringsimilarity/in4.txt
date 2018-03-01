@@ -1,0 +1,69 @@
+05060707
+jack
+#include<bits/stdc++.h>
+#define rep(i,l,p) for(int i=l;i<=p;i++)
+#define drep(i,p,l) for(int i=p;i>=l;i--)
+using namespace std;
+
+const int MAXNM=200005;
+int N,M,K,MAX_X;
+string A,B;
+int P[MAXNM];
+int X[MAXNM];
+int res[MAXNM];
+
+void input(){
+	scanf("%d%d%d",&N,&M,&K);
+	A += "0";
+	B += "0";
+	string st;
+	cin >> st;
+	A += st;
+	
+	cin >> st;
+	B += st;
+	
+	cout << A << "\n" << B <<endl;
+
+	rep(i,1,K){
+		scanf("%d",&X[i]);
+		//MAX_X = max(MAX_X,X[i]);
+	}
+}
+void KMP(){
+
+	P[1] = 0;
+	int j = 0;
+	rep(i,2,M){
+		while(j>0 && B[j+1] != B[i]) j = P[j];
+		if(B[j+1] == B[i]) j++;
+		P[i] = j;
+	}
+	
+	rep(k,1,K){
+		j = 0;
+		rep(i,1,N){
+			while(j>0 && B[j+1] != A[i]) j = P[j];
+			if(B[j+1] == A[i]) j++;
+			if (j == X[k]){
+				res[k]++;
+				j = P[j];
+			}
+		}
+	}
+}
+
+void output(){
+	rep(i,1,K) printf("%d\n",res[i]);
+}
+int main(){
+	
+	
+	input();
+
+	KMP();
+
+	output();
+	return 0;
+
+}
